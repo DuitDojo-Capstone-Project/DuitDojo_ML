@@ -21,3 +21,11 @@ In the text classification folder there are 3 folders consisting of dataset, not
 ### How to use the repo:
 1. Fork the repo
 2. Run the notebook
+
+### Model performance
+![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/assets/126539714/18927cda-b8ce-499b-941e-de2320663132)
+![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/assets/126539714/55c0dd22-1b8f-44a7-a66f-6886b164f892)
+
+on test data:
+![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/assets/126539714/bd4953fd-1c75-4b87-b263-53e2d736d753)
+
