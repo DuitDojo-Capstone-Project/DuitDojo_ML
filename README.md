@@ -13,10 +13,11 @@ There are two models that the ML team has worked on, the first is image to text 
    - Run the notebook to train the model on CORD dataset
 
 ## text classification: 
-In the text classification folder there are 3 folders consisting of dataset, notebook and model
-- In the dataset folder there is a dataset that is used. This dataset was collected by us ourselves. This dataset consists of five labels, namely Food, Clothing, Utilites, Electronic and Others.
+In the text classification folder there are 3 folders consisting of dataset, notebook, model and API
+- in the dataset folder there is a dataset that is used. This dataset was collected by us ourselves. This dataset consists of five labels, namely Food, Clothing, Utilites, Electronic and Others.
 - in the notebook folder there is a notebook for model training
 - in the model folder there is the model.h5, tokenizer and label encoder
+- in the API folder there is API for text classification
 
 ### How to use the repo:
 1. Fork the repo
