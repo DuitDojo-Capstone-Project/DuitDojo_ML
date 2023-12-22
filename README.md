@@ -32,7 +32,7 @@ In the text classification folder there are 3 folders consisting of dataset, not
 2. Run the notebook
 
 ### How to use the API:
-The steps are in the readme file in the API folder
+The steps are in the [README.md file](text%20classification/API) in the API folder
 
 ### Model performance
 ![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/assets/126539714/18927cda-b8ce-499b-941e-de2320663132)
