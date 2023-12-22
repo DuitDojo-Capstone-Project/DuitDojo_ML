@@ -23,28 +23,26 @@ import pytorch_lightning as pl
 from pytorch_lightning.utilities import rank_zero_only
 from pytorch_lightning.callbacks import Callback, EarlyStopping
 
-# Define image size and max sequence length
+
 image_size = [1280, 960]
 max_length = 768
 
-# Load configuration and model
 config = VisionEncoderDecoderConfig.from_pretrained("naver-clova-ix/donut-base")
-config.encoder.image_size = image_size  # (height, width)
+config.encoder.image_size = image_size
 config.decoder.max_length = max_length
 
 processor = DonutProcessor.from_pretrained("naver-clova-ix/donut-base")
 model = VisionEncoderDecoderModel.from_pretrained("naver-clova-ix/donut-base", config=config)
 
-# Load dataset
 dataset = load_dataset("naver-clova-ix/cord-v2")
 
-# Update processor settings
 processor.image_processor.size = image_size[::-1]  # (width, height)
 processor.image_processor.do_align_long_axis = False
 
-# Initialize added tokens list
+#---------------------------------------------------------------------------------------
 added_tokens = []
 
+# Make a class for processing
 class DonutDataset(Dataset):
     """
     PyTorch Dataset for Donut. This class takes a HuggingFace Dataset as input.
@@ -184,7 +182,7 @@ class DonutDataset(Dataset):
         labels[labels == processor.tokenizer.pad_token_id] = self.ignore_id
         return pixel_values, labels, target_sequence
 
-# Create instances for training and validation datasets
+# Create instances of the DonutDataset
 train_dataset = DonutDataset(
     "naver-clova-ix/cord-v2",
     max_length=max_length,
@@ -203,15 +201,12 @@ val_dataset = DonutDataset(
     sort_json_key=False,
 )
 
-# Set configuration for model
 model.config.pad_token_id = processor.tokenizer.pad_token_id
 model.config.decoder_start_token_id = processor.tokenizer.convert_tokens_to_ids(['<s_cord-v2>'])[0]
-
-# Create data loaders
+#-----------------------------------------------------------------------------------------
 train_dataloader = DataLoader(train_dataset, batch_size=1, shuffle=True, num_workers=4)
 val_dataloader = DataLoader(val_dataset, batch_size=1, shuffle=False, num_workers=4)
 
-# Example batch retrieval
 batch = next(iter(train_dataloader))
 pixel_values, labels, target_sequences = batch
 print(pixel_values.shape)
@@ -287,10 +282,10 @@ class DonutModelPLModule(pl.LightningModule):
 
     def val_dataloader(self):
         return val_dataloader
-    
+#---------------------------------------------------------------------------------------
 config = {
     "max_epochs": 30,
-    "val_check_interval": 0.2,  # how many times we want to validate during an epoch
+    "val_check_interval": 0.2, 
     "check_val_every_n_epoch": 1,
     "gradient_clip_val": 1.0,
     "num_training_samples_per_epoch": 800,
@@ -298,7 +293,7 @@ config = {
     "train_batch_sizes": [8],
     "val_batch_sizes": [1],
     "num_nodes": 1,
-    "warmup_steps": 300,  # 800/8*30/10, 10%
+    "warmup_steps": 300,
     "result_path": "./result",
     "verbose": True,
 }
