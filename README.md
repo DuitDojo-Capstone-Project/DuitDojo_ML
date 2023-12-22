@@ -6,6 +6,14 @@ There are two models that the ML team has worked on, the first is image to text 
 3. Using the pytorch framework
 4. the model takes an image input and output the item's name, quantity, price, and total price
 
+## Demo:
+Input image:   
+(JPG)   
+![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/blob/main/image%20to%20text/6.JPG)
+Output:   
+(JSON)   
+![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/blob/main/image%20to%20text/Example%20Output.png)
+
 ### How to use the repo:
 1. Fork the repo
 2. To use the Image-to-text Model:
