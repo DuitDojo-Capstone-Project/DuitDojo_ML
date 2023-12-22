@@ -25,9 +25,9 @@ Output:
 The Text Classification module contains:
 
 - **Dataset Folder**: Includes the collected dataset with five labels: Food, Clothing, Utilities, Electronics, and Others.
-- **Notebook Folder**: Contains the notebook for model training.
+- **Notebook Folder**: Contains the notebook for model training. here we create a multiclass classification model using Tensorflow
 - **Model Folder**: Consists of model.h5, tokenizer, and label encoder.
-- **API Folder**: Contains the API for text classification.
+- **API Folder**: Contains the API using Flask for text classification.
 
 ### How to use the notebook:
 
