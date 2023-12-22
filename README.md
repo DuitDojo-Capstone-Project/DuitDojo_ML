@@ -27,9 +27,12 @@ In the text classification folder there are 3 folders consisting of dataset, not
 - in the model folder there is the model.h5, tokenizer and label encoder
 - in the API folder there is API for text classification
 
-### How to use the repo:
-1. Fork the repo
+### How to use the notebook:
+1. open the notebook
 2. Run the notebook
+
+### How to use the API:
+The steps are in the readme file in the API folder
 
 ### Model performance
 ![image](https://github.com/DuitDojo-Capstone-Project/DuitDojo_ML/assets/126539714/18927cda-b8ce-499b-941e-de2320663132)
